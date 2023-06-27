@@ -39,7 +39,7 @@ if __name__ == "__main__":
     main()
 
 
-# Time Complexity: O(nd)
+# Time Complexity: O(n*d)
 # Space Complexity:
 # ***************************************************************************************************
 
@@ -48,8 +48,8 @@ if __name__ == "__main__":
 def left_rotate(lst, d):
     n = len(lst)
     reverse(lst, 0, d - 1)
-    reverse(lst, d, n-1)
-    reverse(lst, 0, n-1)
+    reverse(lst, d, n - 1)
+    reverse(lst, 0, n - 1)
 
     return lst
 
@@ -62,8 +62,8 @@ def reverse(lst, start, end):
 
 
 def main():
-    lst = [10, 20, 30, 40, 50]
-    d = 2
+    lst = [1, 2, 3, 4, 5, 6, 7]
+    d = 4
     print(f"Solution 3: Left rotate by {d} places", left_rotate(lst, d))
 
 
@@ -71,7 +71,37 @@ if __name__ == "__main__":
     main()
 
 
-# Time Complexity: O(nd)
+# Time Complexity: O(n*d)
 # Space Complexity: O(1)
 
 # ***********************************************************************************************
+
+def rotate_by_d(nums, k):
+    n = len(nums)
+
+    if k > n:
+        k = k % n
+
+    if k > 0:
+        reverse_nums(nums, 0, n - 1)
+        reverse_nums(nums, 0, k - 1)
+        reverse_nums(nums, k, n - 1)
+
+    return nums
+
+
+def reverse_nums(nums, s, e):
+    while s < e:
+        nums[s], nums[e] = nums[e], nums[s]
+        s += 1
+        e -= 1
+
+    return nums
+
+
+nums = [1, 2, 3, 4, 5, 6, 7]
+k = 3
+print(rotate_by_d(nums, k))
+
+# Time Complexity: O(n*k) ----> O(N)
+# Space Complexity: O(1)

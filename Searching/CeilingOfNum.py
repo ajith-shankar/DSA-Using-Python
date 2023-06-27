@@ -32,7 +32,7 @@ def ceiling_of_num(arr, target):
 
 def main():
     arr = [2, 3, 5, 9, 14, 16, 18]
-    target = 20
+    target = 15
     res = ceiling_of_num(arr, target)
     if res != -1:
         print(f"The Ceiling of the {target} is present at index:", res)

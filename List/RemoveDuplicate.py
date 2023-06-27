@@ -60,12 +60,19 @@ def remove_dup(arr, n):
     j = j+1
     return j
 
+    # i = 0
+    #     for j in range(1, len(arr)):
+    #         if arr[i] != arr[j]:
+    #             i += 1
+    #             arr[i] = arr[j]
+    #     return i + 1
+
 
 def main():
     arr = [10, 20, 20, 30, 40, 40, 40, 50, 50]
     # arr = []
     n = len(arr)
-    print(f"Solution 2: Array after removed duplicates and its size is:", remove_duplicate(arr, n))
+    print(f"Solution 2: Array after removed duplicates and its size is:", remove_dup(arr, n))
 
 
 if __name__ == "__main__":

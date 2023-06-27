@@ -55,9 +55,9 @@ def max_profit(price, days):
     profit = 0
     for i in range(1, days):
         # to check adjacent elements are in increasing order
-        if price[i] > price[i-1]:
+        if price[i] > price[i - 1]:
             # add difference into profit
-            profit = profit + price[i] - price[i-1]
+            profit = profit + price[i] - price[i - 1]
 
     return profit
 
@@ -70,6 +70,38 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Time complexity: O(n)
+# Space complexity: O(1)
+
+# *********************************************************************
+
+# Input: prices = [7,1,5,3,6,4]
+# Output: 5
+# Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+# Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+
+# 3. Two pointer approach
+
+def stock_buy_sell(prices):
+    l = 0  # left=Buy and right=sell
+    r = 1
+    maxP = 0
+    while r < len(prices):
+        if prices[l] < prices[r]:
+            profit = prices[r] - prices[l]
+            maxP = max(maxP, profit)
+        else:
+            l = r  # if right price is low then shift l to r
+        r += 1
+
+    return maxP
+
+
+prices = [7, 1, 5, 3, 6, 4]
+print(stock_buy_sell(prices))
+
 
 # Time complexity: O(n)
 # Space complexity: O(1)

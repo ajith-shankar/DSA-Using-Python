@@ -1,6 +1,6 @@
 # Write a program to check whether the list is sorted or not
 
-# Solution 1: Naive approach
+# Solution 1: Efficient approach
 
 def is_sorted(lst):
     if len(lst) == 0 or len(lst) == 1:
@@ -55,5 +55,42 @@ def main():
 if __name__ == "__main__":
     main()
 
+
 # Time complexity: O(n)
 # Space complexity: O(1)
+
+# *****************************************************************************
+
+def is_sorted(arr):
+    n = len(arr)
+
+    if n == 1:
+        return 1
+
+    asc_count = 0
+    desc_count = 0
+
+    # for ascending array
+    for i in range(1, n):
+        if arr[i] >= arr[i-1]:
+            asc_count += 1
+
+        if asc_count == n-1:
+            return 1
+
+    # for descending array
+    for i in range(1, n):
+        if arr[i] < arr[i-1]:
+            desc_count += 1
+
+        if desc_count == n-1:
+            return 1
+
+    else:
+        return 0
+
+
+arr = [1, 1, 2, 2, 3]
+print(is_sorted(arr))
+
+

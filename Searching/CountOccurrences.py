@@ -48,7 +48,7 @@ def count_occurrence(arr, target):
 
 def main():
     arr = [1, 1, 2, 2, 2, 2, 3]
-    target = 5
+    target = 2
     print(f"Count of {target} is:", count_occurrence(arr, target))
 
 

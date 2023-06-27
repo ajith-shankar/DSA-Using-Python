@@ -27,3 +27,7 @@ def fractionalKnapsack(arr, W):
 arr = [(120, 30), (100, 20), (60, 10)]
 W = 50
 print(fractionalKnapsack(arr, W))
+
+
+# Time complexity: O(N logN)
+# Space complexity: O(N) (in this example)

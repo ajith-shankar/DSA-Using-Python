@@ -60,9 +60,9 @@ def rain_water(arr, n):
     for i in range(1, n):
         left[i] = max(left[i - 1], arr[i])
 
-    # now fill left array
-    right[n-1] = arr[n-1]
-    for i in range(n-2, -1, -1):
+    # now fill right array
+    right[n - 1] = arr[n - 1]
+    for i in range(n - 2, -1, -1):  # reverse order
         right[i] = max(right[i + 1], arr[i])
 
     # Calculate the accumulated water element by element
@@ -81,5 +81,36 @@ def main():
 if __name__ == "__main__":
     main()
 
+
 # Time complexity: O(n)
 # Space complexity: O(n)
+
+# ***************************************************************************************
+
+# https://leetcode.com/problems/trapping-rain-water/
+
+def trap(height):
+    l = 0
+    r = len(height) - 1
+    res = 0
+    leftMax = height[l]
+    rightMax = height[r]
+    while l < r:
+        if leftMax < rightMax:
+            l += 1
+            leftMax = max(leftMax, height[l])
+            res += leftMax - height[l]
+        else:
+            r -= 1
+            rightMax = max(rightMax, height[r])
+            res += rightMax - height[r]
+
+    return res
+
+
+height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+print(trap(height))
+
+# Time complexity: O(n)
+# Space complexity: O(1)
+

@@ -16,4 +16,28 @@ def MaxSum(arr, n, k):
     # compute sum of first window of size k
     res = arr[0]
     for i in range(0, k):
-        res =
+        pass
+
+
+# ************************************************************************
+
+# https://leetcode.com/problems/maximum-subarray/
+
+def max_sub_sum(arr):
+    maxSub = arr[0]
+    currSub = 0
+
+    for i in arr:
+        if currSub < 0:  # if we encounter -ve values then make currSub as 0
+            currSub = 0
+
+        currSub = currSub + i
+        maxSub = max(maxSub, currSub)
+    return maxSub
+
+
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+print(max_sub_sum(arr))
+
+# Time complexity: O(n)
+# Space complexity: O(1)
